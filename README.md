@@ -1,4 +1,3 @@
-# whack-game
 # Whack-awhateveryouwant
 ## Brief
 Click to start the game.
