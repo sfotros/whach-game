@@ -1,12 +1,14 @@
 const fields = document.getElementsByClassName('field');
-const mrBump = document.getElementsByClassName('mrBump');
-const score = document.getElementById('score');
+const mrBumps = document.querySelectorAll('.mrBump');
+const scorePlayer = document.getElementById('score');
 const btn = document.getElementById('btn');
 
-const randomTime = (min, max) => Math.round(Math.random() * (max - min) + min);
+let score = 0;
 let timeOfGame = 10000;
 let lastField;
 let timeUp = false;
+
+const randomTime = (min, max) => Math.round(Math.random() * (max - min) + min);
 
 btn.addEventListener('click', () => {
   start();
@@ -25,7 +27,7 @@ const randomField = (fields) => {
 };
 
 const popUp = () => {
-  const time = randomTime(200, 1000);
+  const time = randomTime(600, 2000);
   const field = randomField(fields);
   field.classList.add('up');
   setTimeout(() => {
@@ -35,8 +37,18 @@ const popUp = () => {
 };
 
 const start = () => {
-  score.textContent = 0;
+  scorePlayer.textContent = 0;
+  score = 0;
   timeUp = false;
   popUp();
   setTimeout(() => (timeUp = true), timeOfGame);
 };
+
+mrBumps.forEach((mr) =>
+  mr.addEventListener('click', () => {
+    score++;
+    console.log(score);
+    scorePlayer.textContent = score;
+    mr.classList.remove('up');
+  })
+);
