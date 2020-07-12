@@ -9,24 +9,24 @@ const btnTimeSel = document.querySelectorAll('.select-time');
 const timeLeft = document.querySelector('#time-left');
 
 let score = 0;
-let timeOfGame;
+let timeOfGame = 10000;
 let lastField;
 let timeUp = false;
 //
-let currentTime = timeLeft.textContent;
+let currentTime = 10;
 
 btnTimeSel.forEach((sel) =>
   sel.addEventListener('click', () => {
     console.log(sel.id);
     if (sel.id === 'btn10') {
       timeOfGame = 10000;
-      timeLeft.textContent = 10;
+      currentTime = 10;
     } else if (sel.id === 'btn15') {
       timeOfGame = 15000;
-      timeLeft.textContent = 15;
+      currentTime = 15;
     } else if (sel.id === 'btn20') {
       timeOfGame = 20000;
-      timeLeft.textContent = 20;
+      currentTime = 20;
     }
   })
 );
@@ -76,6 +76,7 @@ const start = () => {
   setTimeout(() => {
     timeUp = true;
     alert('GAME OVER!');
+    // clearInterval(timeOfGame);
   }, timeOfGame);
 };
 
@@ -90,10 +91,11 @@ mrBumps.forEach((mr) =>
 
 const countDown = () => {
   currentTime--;
-  timeLeft.textContent = currentTime;
+  timeLeft.textContent = currentTime + ':00';
   if (currentTime === 0) {
-    clearInterval(timeOfGame);
+    clearInterval(timerShow);
     // alert('GAME OVER!');
   }
 };
-// let timerId = setInterval(countDown, 1000)
+
+let timerShow = setInterval(countDown, 1000);

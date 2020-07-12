@@ -74,6 +74,8 @@ button:active {
   color: #104891;
   box-shadow: 2px 3px #999;
   padding: 20px;
+  background-color: #66a1ee;
+  border-radius: 8px;
 }
 .main {
   display: flex;
@@ -81,7 +83,7 @@ button:active {
   height: 400px;
   background-color: #d4e4f8;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 20px;
   border-radius: 8px;
   border: 3px solid #104891;
