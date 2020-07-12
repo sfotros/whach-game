@@ -17,16 +17,18 @@ let currentTime = 10;
 
 btnTimeSel.forEach((sel) =>
   sel.addEventListener('click', () => {
-    console.log(sel.id);
     if (sel.id === 'btn10') {
       timeOfGame = 10000;
       currentTime = 10;
+      timeLeft.textContent = currentTime + ':00';
     } else if (sel.id === 'btn15') {
       timeOfGame = 15000;
       currentTime = 15;
+      timeLeft.textContent = currentTime + ':00';
     } else if (sel.id === 'btn20') {
       timeOfGame = 20000;
       currentTime = 20;
+      timeLeft.textContent = currentTime + ':00';
     }
   })
 );
@@ -76,7 +78,7 @@ const start = () => {
   setTimeout(() => {
     timeUp = true;
     alert('GAME OVER!');
-    // clearInterval(timeOfGame);
+    clearInterval(timeOfGame);
   }, timeOfGame);
 };
 
@@ -93,9 +95,9 @@ const countDown = () => {
   currentTime--;
   timeLeft.textContent = currentTime + ':00';
   if (currentTime === 0) {
-    clearInterval(timerShow);
+    clearInterval(currentTime);
     // alert('GAME OVER!');
   }
 };
 
-let timerShow = setInterval(countDown, 1000);
+// let timerShow = setInterval(countDown, 1000);
