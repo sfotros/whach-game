@@ -16,7 +16,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-family: "DM Mono", monospace;
+  font-family: 'DM Mono', monospace;
   font-size: 20px;
   height: 100vh;
 }
@@ -31,7 +31,7 @@ h3 {
   color: #104891;
 }
 button {
-  font-family: "DM Mono", monospace;
+  font-family: 'DM Mono', monospace;
   font-size: 20px;
   padding: 12px;
   width: 160px;
@@ -55,6 +55,26 @@ button:active {
 
   transform: translateY(4px);
 }
+.head-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.btn-time-sel {
+  display: flex;
+  flex-direction: column;
+}
+.btn-time-sel button {
+  margin-bottom: 10px;
+  padding: 2px;
+  width: 100px;
+}
+#time-left {
+  font-size: 36px;
+  color: #104891;
+  box-shadow: 2px 3px #999;
+  padding: 20px;
+}
 .main {
   display: flex;
   width: 600px;
@@ -75,7 +95,7 @@ button:active {
 /* Nothing: content: “”; – Useful for clearfix and inserting images as background-images (set width and height, and can even resize with background-size). */
 
 .field::after {
-  content: "";
+  content: '';
   display: block;
   background: url(assets/images/field.png) bottom center no-repeat;
   background-size: contain;
